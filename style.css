@@ -15,16 +15,12 @@ body {
 /* Menu bar */
 nav {
     background-color: #222;
-    height: 3rem;           /* fixed height for all pages */
 }
 
 .menu {
     list-style: none;
     display: flex;
-    padding: 0;             /* remove extra padding */
-    height: 100%;           /* fill nav height */
-    align-items: center;    /* vertically center items */
-    margin: 0;
+    padding: 1rem;
 }
 
 .menu li {
@@ -35,7 +31,6 @@ nav {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.2rem;      /* consistent font size */
 }
 
 .menu a:hover {
