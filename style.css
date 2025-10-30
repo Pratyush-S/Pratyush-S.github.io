@@ -15,12 +15,16 @@ body {
 /* Menu bar */
 nav {
     background-color: #222;
+    height: 3rem;           /* fixed height for all pages */
 }
 
 .menu {
     list-style: none;
     display: flex;
-    padding: 1rem;
+    padding: 0;             /* remove extra padding */
+    height: 100%;           /* fill nav height */
+    align-items: center;    /* vertically center items */
+    margin: 0;
 }
 
 .menu li {
@@ -31,6 +35,7 @@ nav {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-size: 1.2rem;      /* consistent font size */
 }
 
 .menu a:hover {
@@ -53,7 +58,7 @@ body.home {
 }
 
 body.bookshelf {
-    background-color: red;
+    background-color: black;
 }
 
 body.blog {
@@ -69,15 +74,15 @@ body.about {
 }
 
 
-/* Medieval-style menu aligned left */
+/* Simple black-and-white menu aligned left */
 .menu {
     list-style: none;
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem 1rem; /* reduced padding */
     justify-content: flex-start; /* align left */
-    background-color: black; /* dark wood-like background */
-   
+    background-color: black; /* black background */
 }
+
 
 .menu li {
     margin: 0 1.5rem;
@@ -102,3 +107,65 @@ body.about {
     text-underline-offset: 4px; /* space between text and underline */
     color: #ffd700;
 }
+
+
+
+.content {
+   max-width: 1000px;   /* was 600px */
+    margin: 0 auto;
+    padding: 2rem 1rem; /* more top padding for spacing */
+
+    /* Ensure vertical stacking */
+    display: block; 
+}
+
+.year-section:first-of-type {
+    margin-top: 2rem; /* space from the title */
+}
+.year-section {
+    margin-bottom: 2rem;
+}
+
+.year-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.year-section ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 0;
+}
+
+.year-section ul li {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.year-section ul li strong {
+    font-weight: bold; /* bold book title */
+}
+
+
+.currently-reading {
+    margin-top: 1.5rem;   /* space above link */
+    margin-bottom: 1rem;  /* space below link before 2025 */
+}
+
+.currently-reading a {
+    text-decoration: none;       /* remove default underline */
+    color: #d4af37;              /* golden text like menu */
+    font-weight: bold;
+    font-size: 1.4rem;           /* same as year 2025 h4 */
+    transition: color 0.3s ease;
+    cursor: pointer;             /* shows clickable pointer */
+}
+
+.currently-reading a:hover {
+    color: #ffd700;              /* brighter gold on hover */
+}
+
+
+
