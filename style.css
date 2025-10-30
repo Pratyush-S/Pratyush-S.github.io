@@ -1,0 +1,104 @@
+/* Reset margin/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu bar */
+nav {
+    background-color: #222;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    padding: 1rem;
+}
+
+.menu li {
+    margin-right: 2rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #ffcc00;
+}
+
+/* Page content */
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+/* Page colors */
+body.home {
+    background-color: black;
+}
+
+body.bookshelf {
+    background-color: red;
+}
+
+body.blog {
+    background-color: green;
+}
+
+body.projects {
+    background-color: #4B0082; /* dark purple */
+}
+
+body.about {
+    background-color: #8B0000; /* dark red */
+}
+
+
+/* Medieval-style menu aligned left */
+.menu {
+    list-style: none;
+    display: flex;
+    padding: 1rem;
+    justify-content: flex-start; /* align left */
+    background-color: black; /* dark wood-like background */
+   
+}
+
+.menu li {
+    margin: 0 1.5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #d4af37; /* golden text */
+    font-family: 'Cinzel', 'Uncial Antiqua', serif; /* medieval-style fonts */
+    font-size: 1.2rem;
+    transition: color 0.3s ease; /* only transition color now */
+}
+
+/* Hover effect: color change */
+.menu a:hover {
+    color: #ffd700; /* brighter gold on hover */
+}
+
+/* Active page with space between underline and text */
+.menu a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px; /* space between text and underline */
+    color: #ffd700;
+}
