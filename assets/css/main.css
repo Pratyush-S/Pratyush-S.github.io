@@ -2454,7 +2454,7 @@ input, select, textarea {
 .aaaa {
     width: 100%;             /* makes sure lists don’t shrink */
 	background-color: #1a1a1a; 
-  
+    text-align: center;        /* keep book lists left-aligned for readability */
      color: white;
 
 }
