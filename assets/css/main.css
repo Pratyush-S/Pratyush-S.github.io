@@ -1,11 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700");
 @import url("fontawesome-all.min.css");
 
-/*
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -2445,3 +2441,52 @@ input, select, textarea {
 					}
 
 	}
+
+
+
+.bookcontent {
+    max-width: 800px;        /* looks cleaner, still responsive */
+    margin: 0 auto;          /* centers horizontally */
+    padding: 4rem 1rem;      /* top space so it clears the nav bar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centers content horizontally */
+    justify-content: center; /* centers vertically within viewport */
+    min-height: 100vh;       /* fills the whole screen height */
+    text-align: center;      /* centers text inside */
+}
+
+.year-section {
+    margin-bottom: 2rem;
+    width: 100%;             /* makes sure lists don’t shrink */
+    text-align: left;        /* keep book lists left-aligned for readability */
+}
+
+.year-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.year-section ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    padding-left: 0;
+}
+
+.currently-reading {
+    margin: 2rem 0;
+}
+
+.currently-reading a {
+    text-decoration: none;
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.currently-reading a:hover {
+    color: #ffd700;
+}
