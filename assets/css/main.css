@@ -2454,8 +2454,9 @@ input, select, textarea {
 .aaaa {
     width: 100%;             /* makes sure lists don’t shrink */
 	background-color: #1a1a1a; 
-    text-align: center;        /* keep book lists left-aligned for readability */
+  
      color: white;
+
 }
 
 
@@ -2482,7 +2483,7 @@ input, select, textarea {
 .year-section {
     margin-bottom: 2rem;
     width: 50%;             /* makes sure lists don’t shrink */
-    text-align: left;        /* keep book lists left-aligned for readability */
+    
 }
 
 .year-section h3 {
@@ -2490,12 +2491,14 @@ input, select, textarea {
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: white;
+   text-align: left; /* Center the years */
 }
 
 .year-section ul {
     list-style-type: disc;
-    margin-left: 2rem;
+    margin-left: 2rem;  /* Indent the list */
     padding-left: 0;
+    text-align: left;    /* Force left alignment */
 }
 
 .currently-reading {

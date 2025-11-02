@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Tree</title>
+<style>
+  body {
+    background-color: #1a1a1a;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+  }
+
+  .skill-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .skill-node {
+    background-color: #333;
+    border: 2px solid #777;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .skill-node:hover {
+    border-color: #ffd700;
+    transform: scale(1.1);
+  }
+
+  .skill-node span {
+    text-align: center;
+    font-size: 12px;
+    pointer-events: none;
+  }
+
+  /* Lines between nodes */
+  .line {
+    position: absolute;
+    background-color: #777;
+    width: 4px;
+    transform-origin: top left;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.2s;
+  }
+</style>
+</head>
+<body>
+
+<div class="skill-tree" id="skillTree"></div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const skills = [
+  { id: 'embedded', name: 'Embedded Systems', level: 3, children: [
+      { id: 'microcontrollers', name: 'Microcontrollers', level: 4 },
+      { id: 'wireless', name: 'Wireless Protocols', level: 3 },
+      { id: 'power', name: 'Power Electronics', level: 2 }
+  ]},
+  { id: 'fpga', name: 'FPGA/RTL Design', level: 4, children: [
+      { id: 'vhdl', name: 'VHDL/Verilog', level: 5 },
+      { id: 'testbench', name: 'Testbench Development', level: 4 },
+      { id: 'simulation', name: 'Simulation & Verification', level: 3 }
+  ]},
+  { id: 'software', name: 'Software Development', level: 3, children: [
+      { id: 'python', name: 'Python', level: 4 },
+      { id: 'linux', name: 'Linux/Yocto', level: 3 },
+      { id: 'rf', name: 'RF Simulation', level: 2 }
+  ]}
+];
+
+// Draw skill nodes recursively
+function drawTree(container, skill, x=0, y=0, parentX=null, parentY=null) {
+  const node = document.createElement('div');
+  node.className = 'skill-node';
+  node.style.left = `${x}px`;
+  node.style.top = `${y}px`;
+  node.innerHTML = `<span>${skill.name}<br>Lv ${skill.level}</span>`;
+  container.appendChild(node);
+
+  // Tooltip
+  const tooltip = document.getElementById('tooltip');
+  node.addEventListener('mousemove', (e) => {
+    tooltip.innerText = `${skill.name} - Level ${skill.level}`;
+    tooltip.style.left = e.pageX + 10 + 'px';
+    tooltip.style.top = e.pageY + 10 + 'px';
+    tooltip.style.opacity = 1;
+  });
+  node.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+
+  // Draw line to parent
+  if(parentX !== null && parentY !== null) {
+    const line = document.createElement('div');
+    line.className = 'line';
+    const dx = x - parentX;
+    const dy = y - parentY;
+    const length = Math.sqrt(dx*dx + dy*dy);
+    line.style.width = `${length}px`;
+    line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+    line.style.left = `${parentX + 40}px`;
+    line.style.top = `${parentY + 40}px`;
+    container.appendChild(line);
+  }
+
+  // Draw children
+  if(skill.children) {
+    let offsetX = x - (skill.children.length-1)*120/2;
+    skill.children.forEach((child, idx) => {
+      drawTree(container, child, offsetX + idx*120, y+150, x, y);
+    });
+  }
+}
+
+// Initialize
+const container = document.getElementById('skillTree');
+let startX = 0;
+skills.forEach((skill, idx) => {
+  drawTree(container, skill, idx*250, 0);
+});
+</script>
+
+</body>
+</html>
