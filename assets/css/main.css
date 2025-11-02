@@ -2444,6 +2444,14 @@ input, select, textarea {
 
 
 
+.aaaa {
+    width: 100%;             /* makes sure lists don’t shrink */
+	background-color: #1a1a1a; 
+    text-align: center;        /* keep book lists left-aligned for readability */
+     color: white;
+}
+
+
 .bookcontent {
     max-width: 800px;        /* looks cleaner, still responsive */
     margin: 0 auto;          /* centers horizontally */
@@ -2454,11 +2462,19 @@ input, select, textarea {
     justify-content: center; /* centers vertically within viewport */
     min-height: 100vh;       /* fills the whole screen height */
     text-align: center;      /* centers text inside */
+ 	color: Gray;
+
+}
+
+/* ADDED: Rule to change the color of the main <h2> heading */
+.bookcontent h2 {
+    color: white; 
+    margin-bottom: 1.5rem; /* Adds some space below the title */
 }
 
 .year-section {
     margin-bottom: 2rem;
-    width: 100%;             /* makes sure lists don’t shrink */
+    width: 50%;             /* makes sure lists don’t shrink */
     text-align: left;        /* keep book lists left-aligned for readability */
 }
 
@@ -2466,7 +2482,7 @@ input, select, textarea {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 .year-section ul {
