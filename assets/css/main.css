@@ -3,6 +3,7 @@
 
 
 
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -167,6 +168,7 @@ input, select, textarea {
 
 		h1 strong {
 			font-weight: 700;
+			color: white;
 		}
 
 	h2 {
@@ -381,6 +383,7 @@ input, select, textarea {
 
 		.row > .col-8 {
 			width: 66.66667%;
+			color: white;
 		}
 
 		.row > .off-8 {
@@ -861,6 +864,7 @@ input, select, textarea {
 
 				.row > .col-7-large {
 					width: 58.33333%;
+					color: white;
 				}
 
 				.row > .off-7-large {
@@ -1146,6 +1150,7 @@ input, select, textarea {
 
 				.row > .col-12-medium {
 					width: 100%;
+					color: white;
 				}
 
 				.row > .off-12-medium {
@@ -1993,7 +1998,7 @@ input, select, textarea {
 
 		.wrapper.style1 {
 			background-image: none;
-			background-color: #fff;
+			background-color: Black;
 		}
 
 		.wrapper.style2 {
@@ -2120,11 +2125,13 @@ input, select, textarea {
 
 		#top h1 {
 			margin-top: 0.35em;
+			color: white;
 		}
 
 		#top p {
 			font-size: 1.5em;
 			line-height: 1.75em;
+
 		}
 
 			#top p a {
