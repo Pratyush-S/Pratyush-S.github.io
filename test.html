@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pratyush Shukla | Bookshelf</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .bookcontent {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .currently-reading {
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+
+        .currently-reading a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .year-section {
+            margin-bottom: 3rem;
+        }
+
+        .year-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Grid of books */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 24px;
+            justify-items: center;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s ease;
+            max-width: 160px;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .book-title {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .book-author {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .book-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="https://bitsundchips.com">Blog</a></li>
+            <li><a href="CV.html">CV</a></li>
+            <li><a href="bookshelf.html">Bookshelf</a></li>
+        </ul>
+    </nav>
+
+    <div class="bookcontent">
+        <h2>Bookshelf</h2>
+
+        <div class="currently-reading">
+            <a href="currently-reading.html">Currently Reading →</a>
+        </div>
+
+        <!-- 2025 Books -->
+        <div class="year-section">
+            <h3>2025</h3>
+            <div class="book-grid">
+                <div class="book">
+                    <img src="test.jpg" alt="Calamity">
+                    <div class="book-title">Calamity</div>
+                    <div class="book-author">Brandon Sanderson</div>
+                </div>
+                <div class="book">
+                    <img src="test.jpg" alt="Firefight">
+                    <div class="book-title">Firefight</div>
+                    <div class="book-author">Brandon Sanderson</div>
+                </div>
+                <div class="book">
+                    <img src=test.jpg" alt="Steelheart">
+                    <div class="book-title">Steelheart</div>
+                    <div class="book-author">Brandon Sanderson</div>
+                </div>
+                <div class="book">
+                    <img src="test.jpg" alt="Children of Ruin">
+                    <div class="book-title">Children of Ruin</div>
+                    <div class="book-author">Adrian Tchaikovsky</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 Books -->
+        <div class="year-section">
+            <h3>2024</h3>
+            <div class="book-grid">
+                <div class="book">
+                    <img src="test.jpg" alt="Children of Time">
+                    <div class="book-title">Children of Time</div>
+                    <div class="book-author">Adrian Tchaikovsky</div>
+                </div>
+                <div class="book">
+                    <img src="test.jpg" alt="The MANIAC">
+                    <div class="book-title">The MANIAC</div>
+                    <div class="book-author">Benjamín Labatut</div>
+                </div>
+                <div class="book">
+                    <img src="test.jpg" alt="Crypto Confidential">
+                    <div class="book-title">Crypto Confidential</div>
+                    <div class="book-author">Nathaniel Eliason</div>
+                </div>
+                <div class="book">
+                    <img src="test.jpg" alt="Badass">
+                    <div class="book-title">Badass: Making Users Awesome</div>
+                    <div class="book-author">Kathy Sierra</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
