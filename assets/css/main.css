@@ -1977,7 +1977,7 @@ input, select, textarea {
 		}
 
 		.icon.featured {
-			color: #EA8A95;
+			color: Black;
 			display: block;
 			margin: 0 0 1.5em 0;
 			cursor: default;
@@ -2357,6 +2357,7 @@ input, select, textarea {
 
 				.box h3 {
 					margin-bottom: 0.25em;
+
 				}
 
 				.box .image.centered {
