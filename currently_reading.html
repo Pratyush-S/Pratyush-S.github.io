@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pratyush Shukla | Currently Reading</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+        }
+
+        .bookcontent {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .back-link {
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons container */
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            padding: 8px 16px;
+            background-color: #222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #444;
+        }
+
+        /* Grid layout */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 24px;
+            justify-items: center;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s ease;
+            max-width: 160px;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .book-title {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .book-author {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .book-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Hidden covers only */
+        .hide-covers img {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="https://bitsundchips.com">Blog</a></li>
+            <li><a href="CV.html">CV</a></li>
+            <li><a href="bookshelf.html">Bookshelf</a></li>
+        </ul>
+    </nav>
+
+    <div class="bookcontent">
+        <h2>Currently Reading</h2>
+
+        <div class="back-link">
+            <a href="bookshelf.html">← Back to Archives</a>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="toggle-btn" id="toggleCoversBtn">Hide Covers</button>
+            <button class="toggle-btn" id="showBothBtn">Show Both</button>
+            <button class="toggle-btn" id="booksOnlyBtn">Books Only</button>
+            <button class="toggle-btn" id="mangasOnlyBtn">Mangas Only</button>
+        </div>
+
+        <div class="book-grid">
+            <!-- Example Book -->
+            <div class="book" data-type="book">
+                <img src="book_cover/necromancer.jpg" alt="Necromancer">
+                <div class="book-title">Necromancer</div>
+                <div class="book-author">William Gibson</div>
+            </div>
+
+            <!-- Example Manga -->
+   
+
+
+            <div class="book" data-type="manga">
+                <img src="book_cover/Vagabond.jpg" alt="Vagabond">
+                <div class="book-title">Vagabond</div>
+                <div class="book-author">Takehiko Inoue</div>
+            </div>
+
+
+            <div class="book" data-type="manga">
+                <img src="book_cover/Real.jpg" alt="Real">
+                <div class="book-title">Real</div>
+                <div class="book-author">Takehiko Inoue</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/One Outs.jpg" alt="One Outs">
+                <div class="book-title">One Outs</div>
+                <div class="book-author">Shinobu Kaitani</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Homunculus.jpg" alt="Homunculus">
+                <div class="book-title">Homunculus</div>
+                <div class="book-author">Hideo Yamamoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/The Kurosagi Corpse Delivery Service.jpg" alt="The Kurosagi Corpse Delivery Service">
+                <div class="book-title">The Kurosagi Corpse Delivery Service</div>
+                <div class="book-author">Eiji Ōtsuka (Original Story) & Housui Yamazaki (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/My Room Is a Dungeon Rest Stop.jpg" alt="My Room Is a Dungeon Rest Stop">
+                <div class="book-title">My Room Is a Dungeon Rest Stop</div>
+                <div class="book-author">Tomoichi (Original Story) & Mitsuru Kido (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Hell's Paradise - Jigokuraku.jpg" alt="Hell's Paradise - Jigokuraku">
+                <div class="book-title">Hell's Paradise - Jigokuraku</div>
+                <div class="book-author">Yuji Kaku</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Fire Force.jpg" alt="Fire Force">
+                <div class="book-title">Fire Force</div>
+                <div class="book-author">Atsushi Ohkubo</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Goblin Slayer - Brand New Day.jpg" alt="Goblin Slayer - Brand New Day">
+                <div class="book-title">Goblin Slayer - Brand New Day</div>
+                <div class="book-author">Kumo Kagyu (Original Story) & Masahiro Ikeno (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Hunter x Hunter.jpg" alt="Hunter x Hunter">
+                <div class="book-title">Hunter x Hunter</div>
+                <div class="book-author">Yoshihiro Togashi</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Mashle - Magic and Muscles.jpg" alt="Mashle - Magic and Muscles">
+                <div class="book-title">Mashle - Magic and Muscles</div>
+                <div class="book-author">Hajime Komoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/MPD-Psycho.jpg" alt="MPD-Psycho">
+                <div class="book-title">MPD-Psycho</div>
+                <div class="book-author">Eiji Ōtsuka (Original Story) & Shou Tajima (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/The Hidden Dungeon Only I Can Enter.jpg" alt="The Hidden Dungeon Only I Can Enter">
+                <div class="book-title">The Hidden Dungeon Only I Can Enter</div>
+                <div class="book-author">Meguru Seto (Original Story) & Hino Kino (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Pumpkin Night.jpg" alt="Pumpkin Night">
+                <div class="book-title">Pumpkin Night</div>
+                <div class="book-author">Masaya Hokazono (Original Story) & Seima Taniguchi (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Nobunaga no Chef.jpg" alt="Nobunaga no Chef">
+                <div class="book-title">Nobunaga no Chef</div>
+                <div class="book-author">Mitsuru Nishimura (Original Story) & Takurō Kajikawa (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/To Your Eternity.jpg" alt="To Your Eternity">
+                <div class="book-title">To Your Eternity</div>
+                <div class="book-author">Yoshitoki Oima</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/The Ship of Theseus.jpg" alt="The Ship of Theseus">
+                <div class="book-title">The Ship of Theseus</div>
+                <div class="book-author">Toshiya Higashimoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Kengan Omega.jpg" alt="Kengan Omega">
+                <div class="book-title">Kengan Omega</div>
+                <div class="book-author">Sandrovich Yabako (Original Story) & Daromeon (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Juujika no Rokunin.jpg" alt="Juujika no Rokunin">
+                <div class="book-title">Juujika no Rokunin</div>
+                <div class="book-author">Shiryuu Nakatake</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Black Clover.jpg" alt="Black Clover">
+                <div class="book-title">Black Clover</div>
+                <div class="book-author">Yūki Tabata</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/So I'm a Spider, So What.jpg" alt="So I'm a Spider, So What">
+                <div class="book-title">So I'm a Spider, So What</div>
+                <div class="book-author">Okina Baba (Original Story) & Asahiro Kakashi (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Shimazaki in the Land of Peace.jpg" alt="Shimazaki in the Land of Peace">
+                <div class="book-title">Shimazaki in the Land of Peace</div>
+                <div class="book-author">Kouji Yoshimoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/One-Punch Man.jpg" alt="One-Punch Man">
+                <div class="book-title">One-Punch Man</div>
+                <div class="book-author">ONE (Original Story) & Yusuke Murata (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Record of Ragnarok.jpg" alt="Record of Ragnarok">
+                <div class="book-title">Record of Ragnarok</div>
+                <div class="book-author">Shinya Umemura, Takumi Fukui (Writers) & Ajichika (Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Yowamushi Pedal.jpg" alt="Yowamushi Pedal">
+                <div class="book-title">Yowamushi Pedal</div>
+                <div class="book-author">Wataru Watanabe</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Goblin Slayer.jpg" alt="Goblin Slayer">
+                <div class="book-title">Goblin Slayer</div>
+                <div class="book-author">Kumo Kagyu (Original Story) & Kōsuke Kurose (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Under Ninja.jpg" alt="Under Ninja">
+                <div class="book-title">Under Ninja</div>
+                <div class="book-author">Kengo Hanazawa</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Dandadan.jpg" alt="Dandadan">
+                <div class="book-title">Dandadan</div>
+                <div class="book-author">Yukinobu Tatsu</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Chainsaw Man.jpg" alt="Chainsaw Man">
+                <div class="book-title">Chainsaw Man</div>
+                <div class="book-author">Tatsuki Fujimoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Vinland Saga.jpg" alt="Vinland Saga">
+                <div class="book-title">Vinland Saga</div>
+                <div class="book-author">Makoto Yukimura</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Goblin Slayer Side Story II - Dai Katana.jpg" alt="Goblin Slayer Side Story II - Dai Katana">
+                <div class="book-title">Goblin Slayer Side Story II - Dai Katana</div>
+                <div class="book-author">Kumo Kagyu (Original Story) & Takashi Minakuchi (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/The Kingdoms of Ruin.jpg" alt="The Kingdoms of Ruin">
+                <div class="book-title">The Kingdoms of Ruin</div>
+                <div class="book-author">Yoruhashi</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Kagurabachi.jpg" alt="Kagurabachi">
+                <div class="book-title">Kagurabachi</div>
+                <div class="book-author">Takeru Hokazono</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Sakamoto Days.jpg" alt="Sakamoto Days">
+                <div class="book-title">Sakamoto Days</div>
+                <div class="book-author">Yūto Suzuki</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Kingdom.jpg" alt="Kingdom">
+                <div class="book-title">Kingdom</div>
+                <div class="book-author">Yasuhisa Hara</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/MAD.jpg" alt="MAD">
+                <div class="book-title">MAD (OOTORI Yuusuke)</div>
+                <div class="book-author">OOTORI Yuusuke</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Goblin Slayer Side Story - Year One.jpg" alt="Goblin Slayer Side Story - Year One">
+                <div class="book-title">Goblin Slayer Side Story - Year One</div>
+                <div class="book-author">Kumo Kagyu (Original Story) & Kento Eida (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Tougen Anki - Legend of the Cursed Blood.jpg" alt="Tougen Anki - Legend of the Cursed Blood">
+                <div class="book-title">Tougen Anki - Legend of the Cursed Blood</div>
+                <div class="book-author">Yura Urushibara</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Daemons of the Shadow Realm.jpg" alt="Daemons of the Shadow Realm">
+                <div class="book-title">Daemons of the Shadow Realm</div>
+                <div class="book-author">Hiromu Arakawa</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Frieren - Beyond Journey's End.jpg" alt="Frieren - Beyond Journey's End">
+                <div class="book-title">Frieren - Beyond Journey's End</div>
+                <div class="book-author">Kanehito Yamada (Writer) & Tsukasa Abe (Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/The Heroic Legend of Arslan.jpg" alt="The Heroic Legend of Arslan">
+                <div class="book-title">The Heroic Legend of Arslan</div>
+                <div class="book-author">Yoshiki Tanaka (Original Story) & Hiromu Arakawa (Manga Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Dai Dark.jpg" alt="Dai Dark">
+                <div class="book-title">Dai Dark</div>
+                <div class="book-author">Q Hayashida</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Uchuu Kyoudai.jpg" alt="Uchuu Kyoudai">
+                <div class="book-title">Uchuu Kyoudai</div>
+                <div class="book-author">Chūya Koyama</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Heavenly Delusion.jpg" alt="Heavenly Delusion">
+                <div class="book-title">Heavenly Delusion</div>
+                <div class="book-author">Masakazu Ishiguro</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Blue Period.jpg" alt="Blue Period">
+                <div class="book-title">Blue Period</div>
+                <div class="book-author">Tsubasa Yamaguchi</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Spy x Family.jpg" alt="Spy x Family">
+                <div class="book-title">Spy x Family</div>
+                <div class="book-author">Tatsuya Endō</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Witch Hat Atelier.jpg" alt="Witch Hat Atelier">
+                <div class="book-title">Witch Hat Atelier</div>
+                <div class="book-author">Kamome Shirahama</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Kaiju No. 8.jpg" alt="Kaiju No. 8">
+                <div class="book-title">Kaiju No. 8</div>
+                <div class="book-author">Naoya Matsumoto</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Biomega.jpg" alt="Biomega">
+                <div class="book-title">Biomega</div>
+                <div class="book-author">Tsutomu Nihei</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/A Returner's Magic Should Be Special.jpg" alt="A Returner's Magic Should Be Special">
+                <div class="book-title">A Returner's Magic Should Be Special</div>
+                <div class="book-author">Usonan (Original Story) & Wookjakga (Artist)</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Enen no Shouboutai.jpg" alt="Enen no Shouboutai">
+                <div class="book-title">Enen no Shouboutai</div>
+                <div class="book-author">Atsushi Ohkubo</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Gleipnir.jpg" alt="Gleipnir">
+                <div class="book-title">Gleipnir</div>
+                <div class="book-author">Sun Takeda</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Hajime no Ippo.jpg" alt="Hajime no Ippo">
+                <div class="book-title">Hajime no Ippo</div>
+                <div class="book-author">George Morikawa</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Hideout.jpg" alt="Hideout">
+                <div class="book-title">Hideout</div>
+                <div class="book-author">Masasumi Kakizaki</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Lili-Men.jpg" alt="Lili-Men">
+                <div class="book-title">Lili-Men</div>
+                <div class="book-author">Yasunobu Yamauchi</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Mieruko-chan.jpg" alt="Mieruko-chan">
+                <div class="book-title">Mieruko-chan</div>
+                <div class="book-author">Tomoki Izumi</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Monster.jpg" alt="Monster">
+                <div class="book-title">Monster</div>
+                <div class="book-author">Naoki Urasawa</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Mushishi.jpg" alt="Mushishi">
+                <div class="book-title">Mushishi</div>
+                <div class="book-author">Yuki Urushibara</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Orange.jpg" alt="Orange">
+                <div class="book-title">Orange</div>
+                <div class="book-author">Ichigo Takano</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Otona Taisen War of the adults.jpg" alt="Otona Taisen War of the adults">
+                <div class="book-title">Otona Taisen War of the adults</div>
+                <div class="book-author">Yukinobu Tatsu</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Psyren.jpg" alt="Psyren">
+                <div class="book-title">Psyren</div>
+                <div class="book-author">Toshiaki Iwashiro</div>
+            </div>
+            <div class="book" data-type="manga">
+                <img src="book_cover/Route End.jpg" alt="Route End">
+                <div class="book-title">Route End</div>
+                <div class="book-author">Katsuya Iwamuro</div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Add more books/mangas here with data-type="book" or data-type="manga" -->
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleCoversBtn');
+        const bookGrid = document.querySelector('.book-grid');
+        const allBooks = document.querySelectorAll('.book');
+
+        // Show/Hide covers
+        toggleBtn.addEventListener('click', () => {
+            bookGrid.classList.toggle('hide-covers');
+            const hidden = bookGrid.classList.contains('hide-covers');
+            toggleBtn.textContent = hidden ? 'Show Covers' : 'Hide Covers';
+        });
+
+        // Media type buttons
+        document.getElementById('showBothBtn').addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = 'flex');
+        });
+
+        document.getElementById('booksOnlyBtn').addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = book.dataset.type === 'book' ? 'flex' : 'none');
+        });
+
+        document.getElementById('mangasOnlyBtn').addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = book.dataset.type === 'manga' ? 'flex' : 'none');
+        });
+    </script>
+</body>
+</html>

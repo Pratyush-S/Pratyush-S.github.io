@@ -1,68 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Pratyush Shukla</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-    </head>
+<head>
+    <title>Pratyush Shukla | Bookshelf</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+        }
 
-<body class="aaaa">
+        .bookcontent {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 20px;
+        }
 
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .currently-reading {
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .currently-reading a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Buttons container */
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            padding: 8px 16px;
+            background-color: #222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #444;
+        }
+
+        .year-section {
+            margin-bottom: 3rem;
+        }
+
+        .year-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        /* Grid layout */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 24px;
+            justify-items: center;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.2s ease;
+            max-width: 160px;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .book-title {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .book-author {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .book-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Hidden covers only */
+        .hide-covers img {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
     <!-- Nav -->
-            <nav id="nav">
-                <ul class="container">
-                    <li><a href="index.html#top">Home</a></li>
-                    <li><a href="https://bitsundchips.com">Blog</a></li>
-                    <li><a href="CV.html">CV</a></li>
-
-                    
-
-                    <li><a href="bookshelf.html">Bookshelf</a></li>
-                    
-                    
-                </ul>
-            </nav>
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="https://bitsundchips.com">Blog</a></li>
+            <li><a href="CV.html">CV</a></li>
+            <li><a href="bookshelf.html">Bookshelf</a></li>
+        </ul>
+    </nav>
 
     <div class="bookcontent">
         <h2>Bookshelf</h2>
 
-      <!-- Currently Reading Link styled like year -->
-    <div class="currently-reading">
-        <a href="currently-reading.html">Currently Reading →</a>
-    </div>
+        <div class="currently-reading">
+            <a href="currently_reading.html">Currently Reading →</a>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="toggle-btn" id="toggleCoversBtn">Hide Covers</button>
+            <button class="toggle-btn" id="showBothBtn">Show Both</button>
+            <button class="toggle-btn" id="booksOnlyBtn">Books Only</button>
+            <button class="toggle-btn" id="mangasOnlyBtn">Mangas Only</button>
+        </div>
 
         <!-- 2025 Books -->
         <div class="year-section">
             <h3>2025</h3>
-            <ul>
-                <li>Calamity by Brandon Sanderson</li>
-                <li>Firefight by Brandon Sanderson</li>
-                <li>Steelheart by Brandon Sanderson</li>
-                <li>Children of Ruin by Adrian Tchaikovsky</li>
-            </ul>
+            <div class="book-grid">
+
+
+
+
+            </div>
         </div>
 
-        <!-- 2024 Books -->
+        <!-- Pre 2025 Books -->
         <div class="year-section">
-            <h3>2024</h3>
-            <ul>
-                <li>Children of Time by Adrian Tchaikovsky</li>
-                <li>The MANIAC by Benjamín Labatut</li>
-                <li>Crypto Confidential by Nathaniel Eliason</li>
-                <li>Don’t Just Roll the Dice by Neil Davidson</li>
-                <li>Badass: Making Users Awesome by Kathy Sierra</li>
-                <li>How to Get Filthy Rich in Rising Asia by Mohsin Hamid</li>
-                <li>Table for Two by Amor Towles</li>
-                <li>Unscripted - The Great Rat-Race Escape by MJ D</li>
-            </ul>
+            <h3>Pre 2025</h3>
+            <div class="book-grid">
+
+
+                <!-- Add all your books and mangas here with data-type="book" or data-type="manga" -->
+
+
+
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Blame.jpg" alt="Blame">
+                    <div class="book-title">Blame</div>
+                    <div class="book-author">Tsutomu Nihei</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Nurarihyon no Mago.jpg" alt="Nurarihyon no Mago">
+                    <div class="book-title">Nurarihyon no Mago</div>
+                    <div class="book-author">Hiroshi Shiibashi</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Liar Game.jpg" alt="Liar Game">
+                    <div class="book-title">Liar Game</div>
+                    <div class="book-author">Shinobu Kaitani</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Holyland.jpg" alt="Holyland">
+                    <div class="book-title">Holyland</div>
+                    <div class="book-author">Kouji Mori</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Knights of Sidonia.jpg" alt="Knights of Sidonia">
+                    <div class="book-title">Knights of Sidonia</div>
+                    <div class="book-author">Tsutomu Nihei</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/I Am a Hero.jpg" alt="I Am a Hero">
+                    <div class="book-title">I Am a Hero</div>
+                    <div class="book-author">Kengo Hanazawa</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/PTSD Radio.jpg" alt="PTSD Radio">
+                    <div class="book-title">PTSD Radio</div>
+                    <div class="book-author">Masaya Hokazono</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/High-Rise Invasion.jpg" alt="High-Rise Invasion">
+                    <div class="book-title">High Rise Invasion</div>
+                    <div class="book-author">Tsuina Miura (Writer) & Takahiro Oba (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Mail.jpg" alt="Mail">
+                    <div class="book-title">Mail</div>
+                    <div class="book-author">Housui Yamazaki</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Kasane.jpg" alt="Kasane">
+                    <div class="book-title">Kasane</div>
+                    <div class="book-author">Daruma Matsuura</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/I Am a Hero in Osaka.jpg" alt="I Am a Hero in Osaka">
+                    <div class="book-title">I Am a Hero in Osaka</div>
+                    <div class="book-author">Kengo Hanazawa (Original Story) & Yūki Honda (Manga Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Fire Punch.jpg" alt="Fire Punch">
+                    <div class="book-title">Fire Punch</div>
+                    <div class="book-author">Tatsuki Fujimoto</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/The Promised Neverland.jpg" alt="The Promised Neverland">
+                    <div class="book-title">The Promised Neverland</div>
+                    <div class="book-author">Kaiu Shirai (Writer) & Posuka Demizu (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/I Am a Hero in Nagasaki.jpg" alt="I Am a Hero in Nagasaki">
+                    <div class="book-title">I Am a Hero in Nagasaki</div>
+                    <div class="book-author">Kengo Hanazawa (Original Story) & Kensuke Nishiuchi (Manga Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Death Note.jpg" alt="Death Note">
+                    <div class="book-title">Death Note</div>
+                    <div class="book-author">Tsugumi Ohba (Writer) & Takeshi Obata (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Fullmetal Alchemist.jpg" alt="Fullmetal Alchemist">
+                    <div class="book-title">Fullmetal Alchemist</div>
+                    <div class="book-author">Hiromu Arakawa</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Slam Dunk.jpg" alt="Slam Dunk">
+                    <div class="book-title">Slam Dunk</div>
+                    <div class="book-author">Takehiko Inoue</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Attack on Titan.jpg" alt="Attack on Titan">
+                    <div class="book-title">Attack on Titan</div>
+                    <div class="book-author">Hajime Isayama</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/The Climber.jpg" alt="The Climber">
+                    <div class="book-title">The Climber</div>
+                    <div class="book-author">Shin'ichi Sakamoto</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Tokyo Ghoul.jpg" alt="Tokyo Ghoul">
+                    <div class="book-title">Tokyo Ghoul</div>
+                    <div class="book-author">Sui Ishida</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Mob Psycho 100.jpg" alt="Mob Psycho 100">
+                    <div class="book-title">Mob Psycho 100</div>
+                    <div class="book-author">ONE</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Tokyo Ghoul_re.jpg" alt="Tokyo Ghoul_re">
+                    <div class="book-title">Tokyo Ghoul:re</div>
+                    <div class="book-author">Sui Ishida</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Kengan Ashura.jpg" alt="Kengan Ashura">
+                    <div class="book-title">Kengan Asura</div>
+                    <div class="book-author">Sandrovich Yabako (Original Story) & Daromeon (Manga Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Beastars.jpg" alt="Beastars">
+                    <div class="book-title">Beastars</div>
+                    <div class="book-author">Paru Itagaki</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Demon Slayer - Kimetsu no Yaiba.jpg" alt="Demon Slayer - Kimetsu no Yaiba">
+                    <div class="book-title">Demon Slayer - Kimetsu no Yaiba</div>
+                    <div class="book-author">Koyoharu Gotouge</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/My Hero Academia Vigilantes.jpg" alt="My Hero Academia Vigilantes">
+                    <div class="book-title">My Hero Academia - Vigilantes</div>
+                    <div class="book-author">Hideyuki Furuhashi (Writer) & Betten Court (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Jagaaaaaan.jpg" alt="Jagaaaaaan">
+                    <div class="book-title">Jagaaaaaan</div>
+                    <div class="book-author">Muneyuki Kaneshiro (Writer) & Kensuke Nishida (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Monkey Peak.jpg" alt="Monkey Peak">
+                    <div class="book-title">Monkey Peak</div>
+                    <div class="book-author">Kido Tomonori (Writer) & Amazume Ryūta (Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Berserk.jpg" alt="Berserk">
+                    <div class="book-title">Berserk</div>
+                    <div class="book-author">Kentaro Miura</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/The Fable.jpg" alt="The Fable">
+                    <div class="book-title">The Fable</div>
+                    <div class="book-author">Katsuhisa Minami</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Jujutsu Kaisen 0.jpg" alt="Jujutsu Kaisen 0">
+                    <div class="book-title">Jujutsu Kaisen 0</div>
+                    <div class="book-author">Gege Akutami</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/The Fable - The Second Contact.jpg" alt="The Fable - The Second Contact">
+                    <div class="book-title">The Fable - The Second Contact</div>
+                    <div class="book-author">Katsuhisa Minami</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Look Back.jpg" alt="Look Back">
+                    <div class="book-title">Look Back</div>
+                    <div class="book-author">Tatsuki Fujimoto</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Jujutsu Kaisen.jpg" alt="Jujutsu Kaisen">
+                    <div class="book-title">Jujutsu Kaisen</div>
+                    <div class="book-author">Gege Akutami</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/100 Ghost Stories That Will Lead to My Own Death.jpg" alt="100 Ghost Stories That Will Lead to My Own Death">
+                    <div class="book-title">100 Ghost Stories That Will Lead to My Own Death</div>
+                    <div class="book-author">Anji Matono</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/My Hero Academia.jpg" alt="My Hero Academia">
+                    <div class="book-title">My Hero Academia</div>
+                    <div class="book-author">Kōhei Horikoshi</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Naruto.jpg" alt="Naruto">
+                    <div class="book-title">Naruto</div>
+                    <div class="book-author">Masashi Kishimoto</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Bleach.jpg" alt="Bleach">
+                    <div class="book-title">Bleach</div>
+                    <div class="book-author">Tite Kubo</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Doubt.jpg" alt="Doubt">
+                    <div class="book-title">Doubt</div>
+                    <div class="book-author">Yoshiki Tonogai</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Gantz.jpg" alt="Gantz">
+                    <div class="book-title">Gantz</div>
+                    <div class="book-author">Hiroya Oku</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Goblin Slayer: Brand New Day.jpg" alt="Goblin Slayer: Brand New Day">
+                    <div class="book-title">Goblin Slayer: Brand New Day</div>
+                    <div class="book-author">Kumo Kagyu (Original Story) & Masahiro Ikeno (Manga Artist)</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Hideout.jpg" alt="Hideout">
+                    <div class="book-title">Hideout</div>
+                    <div class="book-author">Masasumi Kakizaki</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Jigoku no Alice.jpg" alt="Jigoku no Alice">
+                    <div class="book-title">Jigoku no Alice</div>
+                    <div class="book-author">Shouko Tsubaki</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Jigokusei Remina.jpg" alt="Jigokusei Remina">
+                    <div class="book-title">Jigokusei Remina</div>
+                    <div class="book-author">Junji Ito</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Kiichi!!.jpg" alt="Kiichi!!">
+                    <div class="book-title">Kiichi!!</div>
+                    <div class="book-author">Hideki Arai</div>
+                </div>
+              
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Koroshiya 1.jpg" alt="Koroshiya 1">
+                    <div class="book-title">Koroshiya 1</div>
+                    <div class="book-author">Hideo Yamamoto</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Manga of the Dead.jpg" alt="Manga of the Dead">
+                    <div class="book-title">Manga of the Dead</div>
+                    <div class="book-author">Various Artists</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Manhole.jpg" alt="Manhole">
+                    <div class="book-title">Manhole</div>
+                    <div class="book-author">Tetsuya Tsutsui</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/Souten no Koumori.jpg" alt="Souten no Koumori">
+                    <div class="book-title">Souten no Koumori</div>
+                    <div class="book-author">Satoru Yamashita</div>
+                </div>
+                <div class="book" data-type="manga">
+                    <img src="book_cover/The Horizon.jpg" alt="The Horizon">
+                    <div class="book-title">The Horizon</div>
+                    <div class="book-author">Jeong Ji-hoon</div>
+                </div>
+
+
+
+
+
+
+                <!-- Continue adding all the rest with appropriate data-type -->
+            </div>
         </div>
-
-        <!-- Add more years below if needed -->
     </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleCoversBtn');
+        const showBothBtn = document.getElementById('showBothBtn');
+        const booksOnlyBtn = document.getElementById('booksOnlyBtn');
+        const mangasOnlyBtn = document.getElementById('mangasOnlyBtn');
+        const allBooks = document.querySelectorAll('.book');
+        const bookGrids = document.querySelectorAll('.book-grid');
+
+        // Show/Hide covers
+        toggleBtn.addEventListener('click', () => {
+            bookGrids.forEach(grid => grid.classList.toggle('hide-covers'));
+            const hidden = bookGrids[0].classList.contains('hide-covers');
+            toggleBtn.textContent = hidden ? 'Show Covers' : 'Hide Covers';
+        });
+
+        // Media type buttons
+        showBothBtn.addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = 'flex');
+        });
+
+        booksOnlyBtn.addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = book.dataset.type === 'book' ? 'flex' : 'none');
+        });
+
+        mangasOnlyBtn.addEventListener('click', () => {
+            allBooks.forEach(book => book.style.display = book.dataset.type === 'manga' ? 'flex' : 'none');
+        });
+    </script>
 </body>
-
-
-
-
 </html>
