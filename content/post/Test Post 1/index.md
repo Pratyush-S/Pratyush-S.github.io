@@ -12,7 +12,6 @@ tags:
     - Example Tag1
     - Example Tag2
     - Example Tag3
-weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
 Just a test post
